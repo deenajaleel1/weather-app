@@ -9,8 +9,7 @@ dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -64,5 +63,7 @@ app.post("/weather",async(req,res)=>{
         res.render("index",{weather:null,error:"Something went wrong"});
     }
 });
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 // To run server
 export default app;
