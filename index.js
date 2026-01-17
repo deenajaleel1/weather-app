@@ -16,6 +16,8 @@ const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended : true }));
 // To give the direction that all static files like css and images are in the folder public
 app.use(express.static("public"));
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 
 // To display the index.ejs file 
@@ -63,7 +65,6 @@ app.post("/weather",async(req,res)=>{
         res.render("index",{weather:null,error:"Something went wrong"});
     }
 });
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+
 // To run server
 export default app;
