@@ -33,7 +33,7 @@ app.post("/weather",async(req,res)=>{
         //Geocoding API
         const geoResponse = await axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=1&appid=${process.env.OPENWEATHER_API_KEY}`);
         if (geoResponse.data.length === 0){
-            return res.render("index.ejs",{weather:null,error:"City or Country not found"});
+            return res.render("index",{weather:null,error:"City or Country not found"});
         }
         const {lat,lon} = geoResponse.data[0];
 
