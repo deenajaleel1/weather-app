@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  type="text/css"  href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro&display=swap" rel="stylesheet">
+    <title>Weather App</title>
+</head>
+<body>
+<div class="main-box">
+    <div class="app-header">
+        <h2 class="app-title">WEATHER APP</h2>
+        <div class="window-controls">
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="dot red"></span>
+        </div>
+    </div>
+    <div class="search-box">
+        <form action="/weather" method="POST"><input type="text" name="location" placeholder="Search city or country" required/></form>
+    </div>
+    <% if (error) {%>
+        <p class="error-text"><%= error %></p>
+    <% } %>
+    <% if (weather) { %>
+    <div class="weather-result">
+        <h2 class="city-name"><%= weather.city %>,<%= weather.country%></h2>
+        <div class="icon-wrapper">
+            <img src="/icons/<%= weather.icon %>.svg" class="weather-icon" />
+        </div>
+
+        <div class="temp-section">
+            <span class="temperature"><%= weather.temp %>°</span>
+            <span class="condition"><%= weather.condition %></span>
+        </div>
+        <div class="extra-info">
+            <div class="info">
+                <p class="label">Humidity</p>
+                <p class="value"><%= weather.humidity %>%</p>
+            </div>
+            <div class="info">
+                <p class="label">Wind</p>
+                <p class="value"><%= weather.wind %>&nbsp;km/hr</p>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</div>
+</body>
+</html>

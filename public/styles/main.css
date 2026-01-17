@@ -1,0 +1,152 @@
+.main-box{
+   width:500px;
+   max-width:90%;
+   margin:40px auto;
+   height:auto;
+   padding:20px;
+   border-radius:16px;
+   box-shadow:0 10px 25px rgba(0,0,0,0.2);
+   border-bottom: 5px solid black;
+   background-color: #CED2F4;
+   position: relative;
+}
+.app-header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:16px;
+}
+.app-title{
+    font-family:'Jaro' , sans-serif;
+    font-size: 26px;
+    margin:0;
+}
+.window-controls{
+    display:flex;
+    gap:8px;
+}
+.dot{
+    width:20px;
+    height:20px;
+    border-radius: 50%;
+}
+.dot.yellow{
+    background-color: #FFF70D;
+}
+.dot.green{
+    background-color: #93E882;
+}
+.dot.red{
+    background-color: #E68B8B;
+}
+.search-box input{
+    border-radius: 8px;
+    width:95%;
+    border:none;
+    outline: none;
+    padding:12px;
+    font-size: 16px;
+    margin-bottom:20px;
+}
+.error-text{
+    color:#ff6b6b;
+    text-align: center;
+    margin-top:10px;
+    font-size:14px;
+}
+.weather-result{
+    background:#3b3b3b;
+    color:#ffffff;
+    padding:25px;
+    border-radius:12px;
+}
+.city-name{
+    font-size:22px;
+    text-align: center;
+    margin-bottom:10px;
+}
+.icon-wrapper {
+    width: 90px;
+    height: 90px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-icon {
+    width: 80px;
+    height: 80px;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+.temp-section{
+    margin:20px 0;
+    text-align:center; 
+}
+.temperature{
+    font-size:56px;
+    font-weight:bold;
+    display: block;
+}
+.condition{
+    font-size:20px;
+    color:#d1d1d1;
+}
+.extra-info{
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+}
+.info{
+    text-align: center;
+}
+.label{
+    font-size:16px;
+    color:#bdbdbd;
+}
+.value{
+    font-size: 18px;
+    font-weight:600;
+}
+/* mobile <= 480px*/
+@media (max-width: 480px) {
+  .main-box {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .app-title {
+    font-size: 22px;
+  }
+
+  .city-name {
+    font-size: 18px;
+  }
+
+  .temperature {
+    font-size: 42px;
+  }
+
+  .condition {
+    font-size: 16px;
+  }
+
+  .weather-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .extra-info {
+    gap: 10px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .value {
+    font-size: 16px;
+  }
+}
