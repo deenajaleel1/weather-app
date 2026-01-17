@@ -1,9 +1,16 @@
 import express from "express";
 import axios from "axios";
 import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -14,7 +21,7 @@ app.use(express.static("public"));
 
 // To display the index.ejs file 
 app.get("/", (req,res)=>{
-    res.render("index.ejs", { weather:null , error:null });
+    res.render("index", { weather:null , error:null });
 });
 
 app.post("/weather",async(req,res)=>{
@@ -51,13 +58,11 @@ app.post("/weather",async(req,res)=>{
             icon:icon
         };
         console.log(weather.weather);
-        res.render("index.ejs",{weather:weatherData,error:null});
+        res.render("index",{weather:weatherData,error:null});
     }catch(error){
         console.log("ERROR DETAILS:", error.response?.data || error.message);
-        res.render("index.ejs",{weather:null,error:"Something went wrong"});
+        res.render("index",{weather:null,error:"Something went wrong"});
     }
 });
 // To run server
-app.listen(port,() => {
-    console.log(`Server is running on port ${port}`);
-});
+export default app;
